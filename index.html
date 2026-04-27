@@ -11,188 +11,85 @@
       padding: 70px 20px 30px;
       text-align: center;
     }
-    body.dark {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 100%);
-    }
-
-    /* NAVBAR */
+    body.dark { background: linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 100%); }
     .navbar {
       position: fixed; top: 0; left: 0; right: 0;
       background: #c0392b; padding: 10px 16px;
-      display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;
+      display: flex; align-items: center; gap: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 100;
     }
     .navbar-brand { color: white; font-size: 14px; font-weight: 700; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-btn {
-      background: rgba(255,255,255,0.2); color: white;
-      border: none; padding: 5px 10px; border-radius: 20px;
-      font-size: 12px; cursor: pointer; white-space: nowrap; flex-shrink: 0;
-    }
+    .nav-btn { background: rgba(255,255,255,0.2); color: white; border: none; padding: 5px 10px; border-radius: 20px; font-size: 12px; cursor: pointer; flex-shrink: 0; }
     .nav-btn:hover, .nav-btn.active { background: white; color: #c0392b; font-weight: 600; }
-    .login-nav-btn {
-      background: white; color: #c0392b; border: none;
-      padding: 5px 10px; border-radius: 20px;
-      font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0;
-    }
-    .login-nav-btn:hover { background: #ffe0e0; }
-    .dark-toggle {
-      background: rgba(255,255,255,0.15); color: white;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      padding: 5px 10px; border-radius: 20px;
-      font-size: 12px; cursor: pointer; flex-shrink: 0; font-weight: 600;
-    }
-    .dark-toggle:hover { background: rgba(255,255,255,0.3); }
-
-    /* PAGES */
+    .login-nav-btn { background: white; color: #c0392b; border: none; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+    .dark-toggle { background: rgba(255,255,255,0.15); color: white; border: 1.5px solid rgba(255,255,255,0.4); padding: 5px 10px; border-radius: 20px; font-size: 12px; cursor: pointer; flex-shrink: 0; font-weight: 600; }
     .page { display: none; max-width: 520px; margin: 0 auto; }
     .page.active { display: block; }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #c0392b, #e74c3c);
-      border-radius: 24px; padding: 48px 30px; color: white;
-      box-shadow: 0 6px 24px rgba(192,57,43,0.3); margin-bottom: 20px;
-    }
+    .hero { background: linear-gradient(135deg, #c0392b, #e74c3c); border-radius: 24px; padding: 48px 30px; color: white; box-shadow: 0 6px 24px rgba(192,57,43,0.3); margin-bottom: 20px; }
     .hero .big-emoji { font-size: 64px; margin-bottom: 14px; }
     .hero h1 { font-size: 48px; margin-bottom: 8px; }
     .hero p { font-size: 16px; opacity: 0.9; margin-bottom: 28px; }
-    .home-btn {
-      display: block; width: 100%; padding: 16px; border-radius: 14px;
-      border: none; font-size: 16px; font-weight: 600; cursor: pointer;
-      margin-bottom: 12px; transition: transform 0.15s;
-    }
+    .home-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 12px; transition: transform 0.15s; }
     .home-btn:hover { transform: translateY(-2px); }
     .btn-hobbies { background: white; color: #c0392b; }
     .btn-food { background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.6) !important; }
-
-    /* PAGE TITLE */
     .page-title { font-size: 26px; font-weight: 700; color: #c0392b; margin-bottom: 16px; }
-
-    /* HOBBY CARDS */
-    .hobby-card {
-      background: white; border-radius: 14px; padding: 16px 20px;
-      margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      text-align: left; display: flex; align-items: flex-start; gap: 14px;
-    }
-    body.dark .hobby-card { background: #2a2a2a; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hobby-card { background: white; border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); text-align: left; display: flex; align-items: flex-start; gap: 14px; }
+    body.dark .hobby-card { background: #2a2a2a; }
     .hobby-icon { font-size: 32px; flex-shrink: 0; }
     .hobby-title { font-size: 16px; font-weight: 600; color: #c0392b; margin-bottom: 4px; }
     .hobby-desc { font-size: 13px; color: #555; line-height: 1.6; }
     body.dark .hobby-desc { color: #aaa; }
-    .fun-fact {
-      background: #fff5f5; border-left: 3px solid #e74c3c;
-      border-radius: 0 8px 8px 0; padding: 8px 12px;
-      margin-top: 8px; font-size: 12px; color: #888;
-    }
+    .fun-fact { background: #fff5f5; border-left: 3px solid #e74c3c; border-radius: 0 8px 8px 0; padding: 8px 12px; margin-top: 8px; font-size: 12px; color: #888; }
     body.dark .fun-fact { background: #3a2020; color: #cc9999; }
-
-    /* FOOD */
-    .food-card {
-      background: white; border-radius: 20px;
-      padding: 30px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center;
-    }
+    .food-card { background: white; border-radius: 20px; padding: 30px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; }
     body.dark .food-card { background: #2a2a2a; }
     .food-emoji { font-size: 72px; margin-bottom: 12px; }
     .food-name { font-size: 32px; font-weight: 700; color: #c0392b; margin-bottom: 10px; }
     .food-desc { font-size: 15px; color: #555; line-height: 1.7; }
     body.dark .food-desc { color: #aaa; }
-
-    /* BACK BTN */
-    .back-btn {
-      background: transparent; border: 1.5px solid #c0392b; color: #c0392b;
-      padding: 8px 20px; border-radius: 20px; font-size: 13px;
-      cursor: pointer; margin-bottom: 16px;
-    }
-    .back-btn:hover { background: #fff5f5; }
-    body.dark .back-btn:hover { background: #3a2020; }
-
+    .back-btn { background: transparent; border: 1.5px solid #c0392b; color: #c0392b; padding: 8px 20px; border-radius: 20px; font-size: 13px; cursor: pointer; margin-bottom: 16px; }
     footer { margin-top: 24px; font-size: 12px; color: #ccc; }
-
-    /* MODAL */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.55); z-index: 200;
-      align-items: center; justify-content: center;
-    }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 200; align-items: center; justify-content: center; }
     .modal-overlay.show { display: flex; }
-    .modal {
-      background: white; border-radius: 20px; padding: 32px 28px;
-      width: 90%; max-width: 360px; text-align: left;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    }
+    .modal { background: white; border-radius: 20px; padding: 32px 28px; width: 90%; max-width: 360px; text-align: left; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
     body.dark .modal { background: #2a2a2a; }
     .modal h2 { font-size: 22px; color: #c0392b; margin-bottom: 6px; }
     .modal p { font-size: 13px; color: #888; margin-bottom: 20px; }
-    .modal input {
-      width: 100%; padding: 11px 14px; border-radius: 10px;
-      border: 1.5px solid #ddd; font-size: 14px;
-      margin-bottom: 12px; outline: none; background: white; color: #333;
-    }
+    .modal input { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1.5px solid #ddd; font-size: 14px; margin-bottom: 12px; outline: none; background: white; color: #333; }
     body.dark .modal input { background: #3a3a3a; border-color: #555; color: #eee; }
     .modal input:focus { border-color: #c0392b; }
-    .modal-btn {
-      width: 100%; padding: 13px; border-radius: 12px;
-      background: #c0392b; color: white; border: none;
-      font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px;
-    }
-    .modal-btn:hover { background: #a93226; }
+    .modal-btn { width: 100%; padding: 13px; border-radius: 12px; background: #c0392b; color: white; border: none; font-size: 15px; font-weight: 600; cursor: pointer; }
     .modal-close { float: right; background: none; border: none; font-size: 20px; cursor: pointer; color: #aaa; }
-    .modal-error { color: #c0392b; font-size: 13px; margin-top: -6px; margin-bottom: 8px; display: none; }
-
-    /* DOUBT FAB */
-    .doubt-fab {
-      display: none; position: fixed; bottom: 24px; right: 24px;
-      background: #c0392b; color: white; border: none;
-      border-radius: 999px; padding: 14px 20px;
-      font-size: 14px; font-weight: 600; cursor: pointer;
-      box-shadow: 0 4px 16px rgba(192,57,43,0.4); z-index: 150;
-      animation: popIn 0.4s ease;
-    }
-    .doubt-fab:hover { background: #a93226; transform: scale(1.05); }
-    @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-    /* DOUBT PANEL */
-    .doubt-panel {
-      display: none; position: fixed; bottom: 80px; right: 24px;
-      width: 300px; background: white; border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18); z-index: 150;
-      flex-direction: column; overflow: hidden; max-height: 420px;
-    }
+    .modal-error { color: #c0392b; font-size: 13px; margin-bottom: 8px; display: none; }
+    .doubt-fab { display: none; position: fixed; bottom: 24px; right: 24px; background: #c0392b; color: white; border: none; border-radius: 999px; padding: 14px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 16px rgba(192,57,43,0.4); z-index: 150; }
+    .doubt-fab:hover { background: #a93226; }
+    .doubt-panel { display: none; position: fixed; bottom: 80px; right: 24px; width: 300px; background: white; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); z-index: 150; flex-direction: column; overflow: hidden; max-height: 480px; }
     body.dark .doubt-panel { background: #2a2a2a; }
     .doubt-panel.show { display: flex; }
-    .doubt-header {
-      background: #c0392b; color: white; padding: 14px 16px;
-      display: flex; align-items: center; gap: 8px;
-    }
+    .doubt-header { background: #c0392b; color: white; padding: 14px 16px; display: flex; align-items: center; gap: 8px; }
     .doubt-header span { flex: 1; font-weight: 600; font-size: 14px; }
     .doubt-close { background: none; border: none; color: white; font-size: 18px; cursor: pointer; }
-    .doubt-messages {
-      flex: 1; overflow-y: auto; padding: 12px;
-      display: flex; flex-direction: column; gap: 10px; min-height: 180px;
-    }
-    .msg { max-width: 85%; padding: 10px 13px; border-radius: 14px; font-size: 13px; line-height: 1.6; }
+    .doubt-tabs { display: flex; gap: 4px; padding: 8px; background: #f9f9f9; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+    body.dark .doubt-tabs { background: #222; border-bottom-color: #444; }
+    .doubt-tab { font-size: 11px; padding: 3px 8px; border-radius: 20px; border: 1px solid #ddd; background: white; cursor: pointer; color: #555; }
+    body.dark .doubt-tab { background: #333; border-color: #555; color: #aaa; }
+    .doubt-tab:hover, .doubt-tab.active { background: #c0392b; color: white; border-color: #c0392b; }
+    .doubt-messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-height: 160px; }
+    .msg { max-width: 90%; padding: 10px 13px; border-radius: 14px; font-size: 13px; line-height: 1.6; white-space: pre-line; }
     .msg.ai { background: #fff5f5; color: #333; align-self: flex-start; border-bottom-left-radius: 4px; }
     body.dark .msg.ai { background: #3a2020; color: #eee; }
     .msg.user { background: #c0392b; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
     .doubt-input-row { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #f0f0f0; }
     body.dark .doubt-input-row { border-top-color: #444; }
-    .doubt-input {
-      flex: 1; padding: 8px 12px; border-radius: 20px;
-      border: 1.5px solid #ddd; font-size: 13px; outline: none;
-      background: white; color: #333;
-    }
+    .doubt-input { flex: 1; padding: 8px 12px; border-radius: 20px; border: 1.5px solid #ddd; font-size: 13px; outline: none; background: white; color: #333; }
     body.dark .doubt-input { background: #3a3a3a; border-color: #555; color: #eee; }
     .doubt-input:focus { border-color: #c0392b; }
-    .doubt-send {
-      background: #c0392b; color: white; border: none;
-      border-radius: 50%; width: 34px; height: 34px;
-      font-size: 15px; cursor: pointer; flex-shrink: 0;
-    }
+    .doubt-send { background: #c0392b; color: white; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 15px; cursor: pointer; flex-shrink: 0; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <div class="navbar">
     <span class="navbar-brand">⭐ Shlok's Website</span>
     <button class="nav-btn active" id="nav-home" onclick="showPage('home')">Home</button>
@@ -202,7 +99,6 @@
     <button class="login-nav-btn" id="login-nav-btn" onclick="openLogin()">🔐 Login</button>
   </div>
 
-  <!-- HOME PAGE -->
   <div class="page active" id="page-home">
     <div class="hero">
       <div class="big-emoji">⭐</div>
@@ -214,73 +110,29 @@
     <footer>Made by Shlok ❤️ | My first ever website!</footer>
   </div>
 
-  <!-- HOBBIES PAGE -->
   <div class="page" id="page-hobbies">
     <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
     <div class="page-title">🎯 My Hobbies</div>
-
-    <div class="hobby-card">
-      <div class="hobby-icon">♟️</div>
-      <div>
-        <div class="hobby-title">Chess</div>
-        <div class="hobby-desc">Chess teaches me to think ahead and plan smart moves. Every game is like a new puzzle!</div>
-        <div class="fun-fact">⚡ There are more possible chess games than atoms in the observable universe!</div>
-      </div>
-    </div>
-
-    <div class="hobby-card">
-      <div class="hobby-icon">🏏</div>
-      <div>
-        <div class="hobby-title">Cricket</div>
-        <div class="hobby-desc">I love bowling and fielding — taking wickets is the best feeling ever!</div>
-        <div class="fun-fact">⚡ The fastest bowlers can bowl at speeds up to 160 km/h!</div>
-      </div>
-    </div>
-
-    <div class="hobby-card">
-      <div class="hobby-icon">💻</div>
-      <div>
-        <div class="hobby-title">Coding</div>
-        <div class="hobby-desc">Coding lets me create anything — games, websites, apps. I built this website myself!</div>
-        <div class="fun-fact">⚡ The first computer programmer was Ada Lovelace, in the 1800s!</div>
-      </div>
-    </div>
-
-    <div class="hobby-card">
-      <div class="hobby-icon">🔬</div>
-      <div>
-        <div class="hobby-title">Science</div>
-        <div class="hobby-desc">Science helps me understand how everything works — from stars to tiny atoms!</div>
-        <div class="fun-fact">⚡ A bolt of lightning is 5 times hotter than the surface of the Sun!</div>
-      </div>
-    </div>
-
-    <div class="hobby-card">
-      <div class="hobby-icon">🔢</div>
-      <div>
-        <div class="hobby-title">Math</div>
-        <div class="hobby-desc">Math is my superpower — it helps me solve problems and even get better at chess!</div>
-        <div class="fun-fact">⚡ Zero was invented in India — Shlok is connected to one of the greatest discoveries ever!</div>
-      </div>
-    </div>
-
+    <div class="hobby-card"><div class="hobby-icon">♟️</div><div><div class="hobby-title">Chess</div><div class="hobby-desc">Chess teaches me to think ahead and plan smart moves. Every game is like a new puzzle!</div><div class="fun-fact">⚡ There are more possible chess games than atoms in the observable universe!</div></div></div>
+    <div class="hobby-card"><div class="hobby-icon">🏏</div><div><div class="hobby-title">Cricket</div><div class="hobby-desc">I love bowling and fielding — taking wickets is the best feeling ever!</div><div class="fun-fact">⚡ The fastest bowlers can bowl at speeds up to 160 km/h!</div></div></div>
+    <div class="hobby-card"><div class="hobby-icon">💻</div><div><div class="hobby-title">Coding</div><div class="hobby-desc">Coding lets me create anything — games, websites, apps. I built this website myself!</div><div class="fun-fact">⚡ The first computer programmer was Ada Lovelace, in the 1800s!</div></div></div>
+    <div class="hobby-card"><div class="hobby-icon">🔬</div><div><div class="hobby-title">Science</div><div class="hobby-desc">Science helps me understand how everything works — from stars to tiny atoms!</div><div class="fun-fact">⚡ A bolt of lightning is 5 times hotter than the surface of the Sun!</div></div></div>
+    <div class="hobby-card"><div class="hobby-icon">🔢</div><div><div class="hobby-title">Math</div><div class="hobby-desc">Math is my superpower — it helps me solve problems and even get better at chess!</div><div class="fun-fact">⚡ Zero was invented in India — Shlok is connected to one of the greatest discoveries ever!</div></div></div>
     <footer>Made by Shlok ❤️ | My first ever website!</footer>
   </div>
 
-  <!-- FOOD PAGE -->
   <div class="page" id="page-food">
     <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
     <div class="page-title">🍚 My Favourite Food</div>
     <div class="food-card">
       <div class="food-emoji">🍚</div>
       <div class="food-name">Fried Rice</div>
-      <div class="food-desc">My absolute favourite food is <b>Fried Rice</b>! I could eat it every single day and never get bored!</div>
-      <div class="fun-fact" style="text-align:left; margin-top:16px;">⚡ Fried rice was invented in China over 1,500 years ago — one of the oldest recipes in the world!</div>
+      <div class="food-desc">My absolute favourite food is <b>Fried Rice</b>! I could eat it every single day!</div>
+      <div class="fun-fact" style="text-align:left;margin-top:16px;">⚡ Fried rice was invented in China over 1,500 years ago!</div>
     </div>
     <footer style="margin-top:20px;">Made by Shlok ❤️ | My first ever website!</footer>
   </div>
 
-  <!-- LOGIN MODAL -->
   <div class="modal-overlay" id="login-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeLogin()">✕</button>
@@ -293,26 +145,141 @@
     </div>
   </div>
 
-  <!-- DOUBT FLOATING BUTTON -->
   <button class="doubt-fab" id="doubt-fab" onclick="toggleDoubt()">💬 Ask a Doubt</button>
 
-  <!-- DOUBT PANEL -->
   <div class="doubt-panel" id="doubt-panel">
     <div class="doubt-header">
-      <span>🤖 Doubt Solver</span>
+      <span>🤖 Doubt Solver — 100 Q&As!</span>
       <button class="doubt-close" onclick="toggleDoubt()">✕</button>
     </div>
+    <div class="doubt-tabs">
+      <button class="doubt-tab active" onclick="filterTopic('all',this)">📚 All</button>
+      <button class="doubt-tab" onclick="filterTopic('chess',this)">♟️ Chess</button>
+      <button class="doubt-tab" onclick="filterTopic('cricket',this)">🏏 Cricket</button>
+      <button class="doubt-tab" onclick="filterTopic('coding',this)">💻 Coding</button>
+      <button class="doubt-tab" onclick="filterTopic('science',this)">🔬 Science</button>
+      <button class="doubt-tab" onclick="filterTopic('math',this)">🔢 Math</button>
+    </div>
     <div class="doubt-messages" id="doubt-messages">
-      <div class="msg ai">Hi Shlok! 👋 Ask me anything about Chess, Cricket, Coding, Science, Math — or anything you're curious about!</div>
+      <div class="msg ai">👋 Hi Shlok! I have 100 questions and answers ready for you! Pick a topic above or type any question below!</div>
     </div>
     <div class="doubt-input-row">
-      <input class="doubt-input" id="doubt-input" placeholder="Type your doubt..." onkeydown="if(event.key==='Enter') sendDoubt()" />
-      <button class="doubt-send" onclick="sendDoubt()">➤</button>
+      <input class="doubt-input" id="doubt-input" placeholder="Type your doubt here..." />
+      <button class="doubt-send" id="doubt-send-btn">➤</button>
     </div>
   </div>
 
   <script>
-    // PAGE NAVIGATION
+    const qaDB = [
+      // ♟️ CHESS
+      {topic:"chess",q:"how many squares are on a chess board",a:"♟️ A chess board has 64 squares arranged in an 8×8 grid!"},
+      {topic:"chess",q:"how many pieces does each player start with",a:"♟️ Each player starts with 16 pieces — 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights, and 8 pawns!"},
+      {topic:"chess",q:"which piece is most powerful in chess",a:"♟️ The Queen is the most powerful piece — she can move in any direction as many squares as she wants!"},
+      {topic:"chess",q:"what is checkmate",a:"♟️ Checkmate is when the king is under attack and has no safe square to move to — the game ends!"},
+      {topic:"chess",q:"how does the knight move",a:"♟️ The knight moves in an L-shape — 2 squares in one direction and 1 square sideways!"},
+      {topic:"chess",q:"what is castling in chess",a:"♟️ Castling is a special move where the king moves 2 squares toward a rook and the rook jumps to the other side!"},
+      {topic:"chess",q:"what is en passant",a:"♟️ En passant is a special pawn capture where a pawn can capture another pawn that just moved 2 squares past it!"},
+      {topic:"chess",q:"how does the bishop move",a:"♟️ The bishop moves diagonally any number of squares — one bishop stays on white squares and one on black!"},
+      {topic:"chess",q:"what is stalemate",a:"♟️ Stalemate is when a player has no legal moves but their king is not in check — it results in a draw!"},
+      {topic:"chess",q:"who invented chess",a:"♟️ Chess was invented in India over 1,500 years ago — it was called Chaturanga!"},
+      {topic:"chess",q:"what is the fastest checkmate in chess",a:"♟️ The Fool's Mate is the fastest checkmate — it can happen in just 2 moves!"},
+      {topic:"chess",q:"how does the rook move",a:"♟️ The rook moves any number of squares horizontally or vertically — it is very powerful in open files!"},
+      {topic:"chess",q:"what is chess notation",a:"♟️ Chess notation is a system to write down every move using letters and numbers like e4 or Nf3!"},
+      {topic:"chess",q:"what is pawn promotion",a:"♟️ When a pawn reaches the last row, it can be promoted to a queen, rook, bishop, or knight!"},
+      {topic:"chess",q:"what does check mean in chess",a:"♟️ Check means the king is under direct attack — the player must immediately stop the attack or move the king!"},
+      {topic:"chess",q:"how does the queen move",a:"♟️ The queen can move any number of squares in any direction — horizontally, vertically, or diagonally!"},
+      {topic:"chess",q:"what is an opening in chess",a:"♟️ An opening is the first few moves of a chess game — famous ones include the Italian Game and Sicilian Defence!"},
+      {topic:"chess",q:"who is the greatest chess player of all time",a:"♟️ Many say Garry Kasparov or Magnus Carlsen — Magnus is the current world chess champion!"},
+      {topic:"chess",q:"how many possible chess games are there",a:"♟️ There are more possible chess games than atoms in the entire observable universe — chess is almost infinite!"},
+      {topic:"chess",q:"what is a draw in chess",a:"♟️ A draw happens when neither player wins — it can happen by stalemate, repetition, or agreement between players!"},
+      // 🏏 CRICKET
+      {topic:"cricket",q:"how many players are in a cricket team",a:"🏏 A cricket team has 11 players!"},
+      {topic:"cricket",q:"how many balls are in an over",a:"🏏 There are 6 balls in one over!"},
+      {topic:"cricket",q:"what is a wicket in cricket",a:"🏏 A wicket is the set of three stumps with two bails on top — the bowler tries to hit it to get the batsman out!"},
+      {topic:"cricket",q:"what is a century in cricket",a:"🏏 A century is when a batsman scores 100 or more runs in a single innings — a great achievement!"},
+      {topic:"cricket",q:"what is lbw in cricket",a:"🏏 LBW stands for Leg Before Wicket — the batsman is out if the ball would have hit the stumps but hit their leg instead!"},
+      {topic:"cricket",q:"how many runs is a six",a:"🏏 A six is scored when the ball is hit over the boundary rope without touching the ground — it gives 6 runs!"},
+      {topic:"cricket",q:"what is a no ball",a:"🏏 A no ball is an illegal delivery — the bowler must bowl it again and the batting team gets an extra run!"},
+      {topic:"cricket",q:"what is the difference between test and odi cricket",a:"🏏 Test cricket is played over 5 days while ODI cricket has 50 overs per side and is finished in one day!"},
+      {topic:"cricket",q:"who invented cricket",a:"🏏 Cricket was invented in England in the 16th century and became popular worldwide through the British Empire!"},
+      {topic:"cricket",q:"what is a hat trick in cricket",a:"🏏 A hat trick is when a bowler takes 3 wickets in 3 consecutive balls — very rare and exciting!"},
+      {topic:"cricket",q:"what is a duck in cricket",a:"🏏 A duck is when a batsman gets out without scoring any runs — a golden duck means out on the very first ball!"},
+      {topic:"cricket",q:"who has scored the most runs in international cricket",a:"🏏 Sachin Tendulkar holds the record for the most international runs — he is called the God of Cricket!"},
+      {topic:"cricket",q:"what is a yorker",a:"🏏 A yorker is a ball bowled at the batsman's feet right at the base of the stumps — very hard to hit!"},
+      {topic:"cricket",q:"what is the ipl",a:"🏏 IPL stands for Indian Premier League — it is the world's most popular Twenty20 cricket tournament played in India!"},
+      {topic:"cricket",q:"what is t20 cricket",a:"🏏 T20 cricket is the shortest format where each team bats for only 20 overs — it is fast and very exciting!"},
+      {topic:"cricket",q:"what is a spin bowler",a:"🏏 A spin bowler spins the ball using their fingers or wrist to make it turn after bouncing!"},
+      {topic:"cricket",q:"what is a wide ball",a:"🏏 A wide ball is when the bowler bowls too far from the batsman — it gives an extra run and must be bowled again!"},
+      {topic:"cricket",q:"how many stumps are there in cricket",a:"🏏 There are 3 stumps at each end of the pitch — so 6 stumps in total on the whole field!"},
+      {topic:"cricket",q:"what is the cricket world cup",a:"🏏 The Cricket World Cup is the biggest international cricket tournament, held every 4 years by the ICC!"},
+      {topic:"cricket",q:"what is swing bowling",a:"🏏 Swing bowling is when the bowler makes the ball curve through the air, making it very hard for the batsman to hit!"},
+      // 💻 CODING
+      {topic:"coding",q:"what is coding",a:"💻 Coding is writing instructions in a special language that computers understand — it tells them what to do!"},
+      {topic:"coding",q:"what is html",a:"💻 HTML stands for HyperText Markup Language — it is the language used to build the structure of websites!"},
+      {topic:"coding",q:"what is css",a:"💻 CSS stands for Cascading Style Sheets — it adds colors, fonts, and beautiful designs to websites!"},
+      {topic:"coding",q:"what is javascript",a:"💻 JavaScript is a coding language that makes websites interactive — it powers buttons, animations, and games!"},
+      {topic:"coding",q:"what is a bug in coding",a:"💻 A bug is a mistake in the code that makes the program behave unexpectedly — fixing it is called debugging!"},
+      {topic:"coding",q:"what is a variable in coding",a:"💻 A variable is like a labelled box that stores information — for example, name = 'Shlok' stores your name!"},
+      {topic:"coding",q:"what is a loop in programming",a:"💻 A loop is code that repeats itself over and over until a condition is met — like saying 'do this 10 times'!"},
+      {topic:"coding",q:"what is python",a:"💻 Python is a popular beginner-friendly programming language used for AI, games, data, and websites!"},
+      {topic:"coding",q:"what is an app",a:"💻 An app is a program written by coders that runs on phones or computers to do a specific task!"},
+      {topic:"coding",q:"what is the internet",a:"💻 The internet is a giant network of computers all connected together to share information around the world!"},
+      {topic:"coding",q:"what is a website",a:"💻 A website is a collection of web pages stored on the internet that you can visit using a browser like Chrome!"},
+      {topic:"coding",q:"who was the first programmer",a:"💻 Ada Lovelace was the world's first computer programmer — she wrote the first algorithm in the 1840s!"},
+      {topic:"coding",q:"what is scratch",a:"💻 Scratch is a beginner coding platform by MIT where you drag and drop blocks to create games and animations!"},
+      {topic:"coding",q:"what is an algorithm",a:"💻 An algorithm is a step-by-step set of instructions to solve a problem — like a recipe for computers!"},
+      {topic:"coding",q:"what is a function in coding",a:"💻 A function is a reusable block of code that does a specific job — you can call it as many times as you need!"},
+      {topic:"coding",q:"what is an if statement",a:"💻 An if statement tells the computer to do something only when a condition is true — like 'if it rains, take umbrella'!"},
+      {topic:"coding",q:"what does open source mean",a:"💻 Open source means the code of a program is freely shared so anyone can read, use, or improve it!"},
+      {topic:"coding",q:"what is artificial intelligence",a:"💻 Artificial Intelligence is when computers are programmed to think, learn, and solve problems like humans!"},
+      {topic:"coding",q:"what is a server",a:"💻 A server is a powerful computer that stores websites and sends them to your screen when you type a web address!"},
+      {topic:"coding",q:"what is a game engine",a:"💻 A game engine helps coders build video games easily — examples are Unity and Unreal Engine!"},
+      // 🔬 SCIENCE
+      {topic:"science",q:"what is gravity",a:"🔬 Gravity is the invisible force that pulls everything toward the Earth — it is why we don't float away!"},
+      {topic:"science",q:"what is an atom",a:"🔬 An atom is the tiniest building block of everything — all matter in the universe is made of atoms!"},
+      {topic:"science",q:"why is the sky blue",a:"🔬 The sky looks blue because sunlight is scattered by the atmosphere and blue light scatters the most!"},
+      {topic:"science",q:"what is photosynthesis",a:"🔬 Photosynthesis is how plants make their own food using sunlight, water, and carbon dioxide from the air!"},
+      {topic:"science",q:"what is a black hole",a:"🔬 A black hole is a region in space with such strong gravity that nothing, not even light, can escape from it!"},
+      {topic:"science",q:"how many planets are in the solar system",a:"🔬 There are 8 planets — Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune!"},
+      {topic:"science",q:"what is electricity",a:"🔬 Electricity is the flow of tiny charged particles called electrons through a conductor like a wire!"},
+      {topic:"science",q:"what is dna",a:"🔬 DNA is a molecule inside every cell that carries the instructions for how a living thing grows and works!"},
+      {topic:"science",q:"why do we have seasons",a:"🔬 We have seasons because the Earth is tilted on its axis as it orbits the Sun, changing how much sunlight each part receives!"},
+      {topic:"science",q:"what is the speed of light",a:"🔬 Light travels at about 300,000 km per second — it is the fastest thing in the universe!"},
+      {topic:"science",q:"what is evaporation",a:"🔬 Evaporation is when a liquid like water turns into gas when heated — like puddles drying in the sun!"},
+      {topic:"science",q:"what causes thunder and lightning",a:"🔬 Lightning is a giant spark of electricity in the sky, and thunder is the sound it makes as the air rapidly expands!"},
+      {topic:"science",q:"what is the water cycle",a:"🔬 The water cycle is the continuous movement of water through evaporation, cloud formation, and rainfall!"},
+      {topic:"science",q:"what is a fossil",a:"🔬 A fossil is the preserved remains of ancient animals and plants found in rocks — dinosaur bones are fossils!"},
+      {topic:"science",q:"what is sound",a:"🔬 Sound is vibrations that travel through the air as waves and reach your ears so you can hear them!"},
+      {topic:"science",q:"why does the moon shine",a:"🔬 The moon has no light of its own — it shines because it reflects sunlight from the Sun!"},
+      {topic:"science",q:"what is the food chain",a:"🔬 A food chain shows who eats whom in nature — it starts with plants and ends with top predators!"},
+      {topic:"science",q:"what is a chemical reaction",a:"🔬 A chemical reaction is when two or more substances combine to form completely new substances!"},
+      {topic:"science",q:"how do airplanes fly",a:"🔬 Airplane wings create lift — air moves faster over the top of the wing, pushing the plane up!"},
+      {topic:"science",q:"what is the human body made of",a:"🔬 The human body is made of about 37 trillion cells, built from elements like oxygen, carbon, and hydrogen!"},
+      // 🔢 MATH
+      {topic:"math",q:"what is pi",a:"🔢 Pi (π) is approximately 3.14159 — it is the ratio of a circle's circumference to its diameter!"},
+      {topic:"math",q:"what is a prime number",a:"🔢 A prime number can only be divided by 1 and itself — like 2, 3, 5, 7, and 11!"},
+      {topic:"math",q:"what is the pythagoras theorem",a:"🔢 Pythagoras' theorem says in a right triangle, a² + b² = c² where c is the longest side called the hypotenuse!"},
+      {topic:"math",q:"what is zero",a:"🔢 Zero is the number that represents nothing — it was invented in India and changed mathematics forever!"},
+      {topic:"math",q:"what is a fraction",a:"🔢 A fraction represents a part of a whole — like 1/2 means one part out of two equal parts!"},
+      {topic:"math",q:"what is multiplication",a:"🔢 Multiplication is adding a number to itself multiple times — 3 × 4 means 3 added 4 times which equals 12!"},
+      {topic:"math",q:"what is a percentage",a:"🔢 A percentage is a number as a part of 100 — for example, 50% means 50 out of 100!"},
+      {topic:"math",q:"what is an even number",a:"🔢 An even number can be divided exactly by 2 with no remainder — like 2, 4, 6, 8, 10!"},
+      {topic:"math",q:"what is an odd number",a:"🔢 An odd number cannot be divided exactly by 2 — like 1, 3, 5, 7, 9, 11!"},
+      {topic:"math",q:"what is the area of a rectangle",a:"🔢 The area of a rectangle is Length × Width — multiply the two sides together!"},
+      {topic:"math",q:"what is a square number",a:"🔢 A square number is a number multiplied by itself — like 4 × 4 = 16, so 16 is a square number!"},
+      {topic:"math",q:"what is algebra",a:"🔢 Algebra uses letters like x and y to represent unknown numbers and solve equations!"},
+      {topic:"math",q:"what is infinity",a:"🔢 Infinity is the concept of something that never ends — it is not a real number but an idea of endlessness!"},
+      {topic:"math",q:"what is a negative number",a:"🔢 A negative number is less than zero — like -1, -5, or -100, shown with a minus sign in front!"},
+      {topic:"math",q:"what is the perimeter",a:"🔢 The perimeter is the total distance around the outside of a shape — add up all the sides to find it!"},
+      {topic:"math",q:"what is a decimal",a:"🔢 A decimal is a number with a dot called a decimal point — like 3.5 or 0.75 — used to show parts of a whole!"},
+      {topic:"math",q:"what is division",a:"🔢 Division is splitting a number into equal parts — 12 ÷ 3 means splitting 12 into 3 equal groups of 4!"},
+      {topic:"math",q:"what are roman numerals",a:"🔢 Roman numerals use letters — I=1, V=5, X=10, L=50, C=100, D=500, M=1000!"},
+      {topic:"math",q:"what is a triangle",a:"🔢 A triangle is a shape with 3 sides and 3 angles — the three angles always add up to 180 degrees!"},
+      {topic:"math",q:"what is the fibonacci sequence",a:"🔢 The Fibonacci sequence is 1, 1, 2, 3, 5, 8, 13... where each number is the sum of the two before it!"}
+    ];
+
+    let currentTopic = 'all';
+
     function showPage(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -321,16 +288,13 @@
       window.scrollTo(0, 0);
     }
 
-    // DARK MODE
     let isDark = false;
     function toggleDark() {
       isDark = !isDark;
       document.body.classList.toggle('dark', isDark);
-      const btn = document.getElementById('dark-toggle-btn');
-      btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+      document.getElementById('dark-toggle-btn').textContent = isDark ? '☀️ Light' : '🌙 Dark';
     }
 
-    // LOGIN
     function openLogin() { document.getElementById('login-modal').classList.add('show'); }
     function closeLogin() { document.getElementById('login-modal').classList.remove('show'); }
     function doLogin() {
@@ -348,50 +312,65 @@
       btn.onclick = null;
     }
 
-    // DOUBT PANEL
     function toggleDoubt() {
       const panel = document.getElementById('doubt-panel');
       panel.classList.toggle('show');
       if (panel.classList.contains('show')) document.getElementById('doubt-input').focus();
     }
 
-    // AI DOUBT SOLVER
-    async function sendDoubt() {
-      const input = document.getElementById('doubt-input');
-      const text = input.value.trim();
-      if (!text) return;
-      input.value = '';
-      addMsg(text, 'user');
-      const typing = addMsg('Thinking... 🤔', 'ai');
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 1000,
-            system: "You are a friendly, encouraging tutor for a 8-10 year old child named Shlok who loves Chess, Cricket, Coding, Science, and Math. Answer all doubts in very simple, fun, easy-to-understand language. Use emojis and short sentences. Keep answers short — max 4-5 sentences. Always be positive and encouraging!",
-            messages: [{ role: 'user', content: text }]
-          })
-        });
-        const data = await res.json();
-        typing.remove();
-        addMsg(data.content?.[0]?.text || "Hmm, try asking again! 😊", 'ai');
-      } catch(e) {
-        typing.remove();
-        addMsg("Oops! Something went wrong. Try again! 😊", 'ai');
-      }
+    function filterTopic(topic, btn) {
+      currentTopic = topic;
+      document.querySelectorAll('.doubt-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const count = topic === 'all' ? qaDB.length : qaDB.filter(q => q.topic === topic).length;
+      addMsg('📚 Showing ' + count + ' questions for ' + (topic === 'all' ? 'all topics' : topic) + '. Type any keyword to search!', 'ai');
     }
 
     function addMsg(text, type) {
       const box = document.getElementById('doubt-messages');
       const div = document.createElement('div');
       div.className = 'msg ' + type;
+      div.style.whiteSpace = 'pre-line';
       div.textContent = text;
       box.appendChild(div);
       box.scrollTop = box.scrollHeight;
       return div;
     }
+
+    function searchAndReply(text) {
+      const lower = text.toLowerCase();
+      const pool = currentTopic === 'all' ? qaDB : qaDB.filter(q => q.topic === currentTopic);
+      const words = lower.split(/\s+/).filter(w => w.length > 2);
+      let best = null, bestScore = 0;
+      for (const qa of pool) {
+        let score = 0;
+        for (const w of words) {
+          if (qa.q.includes(w)) score += 2;
+          if (qa.a.toLowerCase().includes(w)) score += 1;
+        }
+        if (score > bestScore) { bestScore = score; best = qa; }
+      }
+      if (best && bestScore > 0) {
+        addMsg(best.a, 'ai');
+      } else {
+        const sample = pool.slice(0, 3).map(q => '• ' + q.q + '?').join('\n');
+        addMsg("🤔 Hmm, I couldn't find that one! Try different words or pick a topic tab. Here are some questions I know:\n" + sample, 'ai');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('doubt-input');
+      const sendBtn = document.getElementById('doubt-send-btn');
+      function handleSend() {
+        const val = input.value.trim();
+        if (!val) return;
+        addMsg(val, 'user');
+        input.value = '';
+        setTimeout(() => searchAndReply(val), 300);
+      }
+      sendBtn.addEventListener('click', handleSend);
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(); });
+    });
   </script>
 
 </body>
