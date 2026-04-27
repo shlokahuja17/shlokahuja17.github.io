@@ -62,7 +62,7 @@
     .modal-btn { width: 100%; padding: 13px; border-radius: 12px; background: #c0392b; color: white; border: none; font-size: 15px; font-weight: 600; cursor: pointer; }
     .modal-close { float: right; background: none; border: none; font-size: 20px; cursor: pointer; color: #aaa; }
     .modal-error { color: #c0392b; font-size: 13px; margin-bottom: 8px; display: none; }
-    .modal-info { color: #888; font-size: 12px; background: #f0f0f0; padding: 8px; border-radius: 8px; margin-top: 12px; }
+    .modal-info { color: #888; font-size: 12px; background: #f0f0f0; padding: 10px; border-radius: 8px; margin-top: 12px; }
     body.dark .modal-info { background: #333; color: #ccc; }
     .doubt-fab { display: none; position: fixed; bottom: 24px; right: 24px; background: #c0392b; color: white; border: none; border-radius: 999px; padding: 14px 20px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 16px rgba(192,57,43,0.4); z-index: 150; }
     .doubt-fab:hover { background: #a93226; }
@@ -78,7 +78,7 @@
     body.dark .doubt-tab { background: #333; border-color: #555; color: #aaa; }
     .doubt-tab:hover, .doubt-tab.active { background: #c0392b; color: white; border-color: #c0392b; }
     .doubt-messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-height: 160px; }
-    .msg { max-width: 90%; padding: 10px 13px; border-radius: 14px; font-size: 13px; line-height: 1.6; white-space: pre-line; }
+    .msg { max-width: 90%; padding: 10px 13px; border-radius: 14px; font-size: 13px; line-height: 1.6; word-wrap: break-word; }
     .msg.ai { background: #fff5f5; color: #333; align-self: flex-start; border-bottom-left-radius: 4px; }
     body.dark .msg.ai { background: #3a2020; color: #eee; }
     .msg.user { background: #c0392b; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
@@ -142,20 +142,14 @@
   <div class="modal-overlay" id="login-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeLogin()">✕</button>
-      <h2>🔐 Login & Setup</h2>
-      <p>Enter your details to unlock the AI Doubt Solver!</p>
-      <input type="email" id="email-input" placeholder="Your Email ID" />
-      <input type="password" id="password-input" placeholder="Password" />
-      <h3 style="font-size: 14px; color: #c0392b; margin-top: 20px; margin-bottom: 10px;">🤖 ChatGPT API Key</h3>
-      <input type="password" id="api-key-input" placeholder="Enter your OpenAI API key" />
-      <div class="modal-error" id="login-error">Please fill all fields!</div>
+      <h2>🔐 Login</h2>
+      <p>Enter your name to unlock the AI Doubt Solver!</p>
+      <input type="text" id="name-input" placeholder="Your Name (e.g., Shlok)" />
+      <div class="modal-error" id="login-error">Please enter your name!</div>
       <button class="modal-btn" onclick="doLogin()">Login & Unlock →</button>
       <div class="modal-info">
-        <strong>How to get API Key:</strong><br>
-        1. Go to <a href="https://platform.openai.com/account/api-keys" target="_blank" style="color: #c0392b; text-decoration: none;">OpenAI API Keys</a><br>
-        2. Create new secret key<br>
-        3. Copy and paste it above<br>
-        <strong>Note:</strong> Your key is stored locally in your browser only!
+        ✨ <strong>Powered by Google Gemini AI</strong><br>
+        100% Free • No API Key Needed • Just enter your name!
       </div>
     </div>
   </div>
@@ -164,138 +158,32 @@
 
   <div class="doubt-panel" id="doubt-panel">
     <div class="doubt-header">
-      <span>🤖 ChatGPT Doubt Solver</span>
+      <span>🤖 Gemini AI Doubt Solver</span>
       <button class="doubt-close" onclick="toggleDoubt()">✕</button>
     </div>
     <div class="doubt-tabs">
       <button class="doubt-tab active" onclick="filterTopic('all',this)">📚 All</button>
       <button class="doubt-tab" onclick="filterTopic('chess',this)">♟️ Chess</button>
       <button class="doubt-tab" onclick="filterTopic('cricket',this)">🏏 Cricket</button>
-      <button class="doubt-tab" onclick="filterTopic('coding',this)">💻 Coding</button>
+      <button class="doubt-tab" onclick="filterTopic('coding',this)">💻 Code</button>
       <button class="doubt-tab" onclick="filterTopic('science',this)">🔬 Science</button>
       <button class="doubt-tab" onclick="filterTopic('math',this)">🔢 Math</button>
     </div>
     <div class="doubt-messages" id="doubt-messages">
-      <div class="msg ai">👋 Hi Shlok! I'm powered by ChatGPT! Ask me anything about your hobbies or any topic you're curious about!</div>
+      <div class="msg ai">👋 Hi! I'm your AI tutor powered by Google Gemini! Ask me anything about Chess, Cricket, Coding, Science, or Math. Let's learn together! 🚀</div>
     </div>
     <div class="doubt-input-row">
-      <input class="doubt-input" id="doubt-input" placeholder="Type your doubt here..." />
+      <input class="doubt-input" id="doubt-input" placeholder="Type your doubt..." />
       <button class="doubt-send" id="doubt-send-btn">➤</button>
     </div>
   </div>
 
   <script>
-    const qaDB = [
-      // ♟️ CHESS
-      {topic:"chess",q:"how many squares are on a chess board",a:"♟️ A chess board has 64 squares arranged in an 8×8 grid!"},
-      {topic:"chess",q:"how many pieces does each player start with",a:"♟️ Each player starts with 16 pieces — 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights, and 8 pawns!"},
-      {topic:"chess",q:"which piece is most powerful in chess",a:"♟️ The Queen is the most powerful piece — she can move in any direction as many squares as she wants!"},
-      {topic:"chess",q:"what is checkmate",a:"♟️ Checkmate is when the king is under attack and has no safe square to move to — the game ends!"},
-      {topic:"chess",q:"how does the knight move",a:"♟️ The knight moves in an L-shape — 2 squares in one direction and 1 square sideways!"},
-      {topic:"chess",q:"what is castling in chess",a:"♟️ Castling is a special move where the king moves 2 squares toward a rook and the rook jumps to the other side!"},
-      {topic:"chess",q:"what is en passant",a:"♟️ En passant is a special pawn capture where a pawn can capture another pawn that just moved 2 squares past it!"},
-      {topic:"chess",q:"how does the bishop move",a:"♟️ The bishop moves diagonally any number of squares — one bishop stays on white squares and one on black!"},
-      {topic:"chess",q:"what is stalemate",a:"♟️ Stalemate is when a player has no legal moves but their king is not in check — it results in a draw!"},
-      {topic:"chess",q:"who invented chess",a:"♟️ Chess was invented in India over 1,500 years ago — it was called Chaturanga!"},
-      {topic:"chess",q:"what is the fastest checkmate in chess",a:"♟️ The Fool's Mate is the fastest checkmate — it can happen in just 2 moves!"},
-      {topic:"chess",q:"how does the rook move",a:"♟️ The rook moves any number of squares horizontally or vertically — it is very powerful in open files!"},
-      {topic:"chess",q:"what is chess notation",a:"♟️ Chess notation is a system to write down every move using letters and numbers like e4 or Nf3!"},
-      {topic:"chess",q:"what is pawn promotion",a:"♟️ When a pawn reaches the last row, it can be promoted to a queen, rook, bishop, or knight!"},
-      {topic:"chess",q:"what does check mean in chess",a:"♟️ Check means the king is under direct attack — the player must immediately stop the attack or move the king!"},
-      {topic:"chess",q:"how does the queen move",a:"♟️ The queen can move any number of squares in any direction — horizontally, vertically, or diagonally!"},
-      {topic:"chess",q:"what is an opening in chess",a:"♟️ An opening is the first few moves of a chess game — famous ones include the Italian Game and Sicilian Defence!"},
-      {topic:"chess",q:"who is the greatest chess player of all time",a:"♟️ Many say Garry Kasparov or Magnus Carlsen — Magnus is the current world chess champion!"},
-      {topic:"chess",q:"how many possible chess games are there",a:"♟️ There are more possible chess games than atoms in the entire observable universe — chess is almost infinite!"},
-      {topic:"chess",q:"what is a draw in chess",a:"♟️ A draw happens when neither player wins — it can happen by stalemate, repetition, or agreement between players!"},
-      // 🏏 CRICKET
-      {topic:"cricket",q:"how many players are in a cricket team",a:"🏏 A cricket team has 11 players!"},
-      {topic:"cricket",q:"how many balls are in an over",a:"🏏 There are 6 balls in one over!"},
-      {topic:"cricket",q:"what is a wicket in cricket",a:"🏏 A wicket is the set of three stumps with two bails on top — the bowler tries to hit it to get the batsman out!"},
-      {topic:"cricket",q:"what is a century in cricket",a:"🏏 A century is when a batsman scores 100 or more runs in a single innings — a great achievement!"},
-      {topic:"cricket",q:"what is lbw in cricket",a:"🏏 LBW stands for Leg Before Wicket — the batsman is out if the ball would have hit the stumps but hit their leg instead!"},
-      {topic:"cricket",q:"how many runs is a six",a:"🏏 A six is scored when the ball is hit over the boundary rope without touching the ground — it gives 6 runs!"},
-      {topic:"cricket",q:"what is a no ball",a:"🏏 A no ball is an illegal delivery — the bowler must bowl it again and the batting team gets an extra run!"},
-      {topic:"cricket",q:"what is the difference between test and odi cricket",a:"🏏 Test cricket is played over 5 days while ODI cricket has 50 overs per side and is finished in one day!"},
-      {topic:"cricket",q:"who invented cricket",a:"🏏 Cricket was invented in England in the 16th century and became popular worldwide through the British Empire!"},
-      {topic:"cricket",q:"what is a hat trick in cricket",a:"🏏 A hat trick is when a bowler takes 3 wickets in 3 consecutive balls — very rare and exciting!"},
-      {topic:"cricket",q:"what is a duck in cricket",a:"🏏 A duck is when a batsman gets out without scoring any runs — a golden duck means out on the very first ball!"},
-      {topic:"cricket",q:"who has scored the most runs in international cricket",a:"🏏 Sachin Tendulkar holds the record for the most international runs — he is called the God of Cricket!"},
-      {topic:"cricket",q:"what is a yorker",a:"🏏 A yorker is a ball bowled at the batsman's feet right at the base of the stumps — very hard to hit!"},
-      {topic:"cricket",q:"what is the ipl",a:"🏏 IPL stands for Indian Premier League — it is the world's most popular Twenty20 cricket tournament played in India!"},
-      {topic:"cricket",q:"what is t20 cricket",a:"🏏 T20 cricket is the shortest format where each team bats for only 20 overs — it is fast and very exciting!"},
-      {topic:"cricket",q:"what is a spin bowler",a:"🏏 A spin bowler spins the ball using their fingers or wrist to make it turn after bouncing!"},
-      {topic:"cricket",q:"what is a wide ball",a:"🏏 A wide ball is when the bowler bowls too far from the batsman — it gives an extra run and must be bowled again!"},
-      {topic:"cricket",q:"how many stumps are there in cricket",a:"🏏 There are 3 stumps at each end of the pitch — so 6 stumps in total on the whole field!"},
-      {topic:"cricket",q:"what is the cricket world cup",a:"🏏 The Cricket World Cup is the biggest international cricket tournament, held every 4 years by the ICC!"},
-      {topic:"cricket",q:"what is swing bowling",a:"🏏 Swing bowling is when the bowler makes the ball curve through the air, making it very hard for the batsman to hit!"},
-      // 💻 CODING
-      {topic:"coding",q:"what is coding",a:"💻 Coding is writing instructions in a special language that computers understand — it tells them what to do!"},
-      {topic:"coding",q:"what is html",a:"💻 HTML stands for HyperText Markup Language — it is the language used to build the structure of websites!"},
-      {topic:"coding",q:"what is css",a:"💻 CSS stands for Cascading Style Sheets — it adds colors, fonts, and beautiful designs to websites!"},
-      {topic:"coding",q:"what is javascript",a:"💻 JavaScript is a coding language that makes websites interactive — it powers buttons, animations, and games!"},
-      {topic:"coding",q:"what is a bug in coding",a:"💻 A bug is a mistake in the code that makes the program behave unexpectedly — fixing it is called debugging!"},
-      {topic:"coding",q:"what is a variable in coding",a:"💻 A variable is like a labelled box that stores information — for example, name = 'Shlok' stores your name!"},
-      {topic:"coding",q:"what is a loop in programming",a:"💻 A loop is code that repeats itself over and over until a condition is met — like saying 'do this 10 times'!"},
-      {topic:"coding",q:"what is python",a:"💻 Python is a popular beginner-friendly programming language used for AI, games, data, and websites!"},
-      {topic:"coding",q:"what is an app",a:"💻 An app is a program written by coders that runs on phones or computers to do a specific task!"},
-      {topic:"coding",q:"what is the internet",a:"💻 The internet is a giant network of computers all connected together to share information around the world!"},
-      {topic:"coding",q:"what is a website",a:"💻 A website is a collection of web pages stored on the internet that you can visit using a browser like Chrome!"},
-      {topic:"coding",q:"who was the first programmer",a:"💻 Ada Lovelace was the world's first computer programmer — she wrote the first algorithm in the 1840s!"},
-      {topic:"coding",q:"what is scratch",a:"💻 Scratch is a beginner coding platform by MIT where you drag and drop blocks to create games and animations!"},
-      {topic:"coding",q:"what is an algorithm",a:"💻 An algorithm is a step-by-step set of instructions to solve a problem — like a recipe for computers!"},
-      {topic:"coding",q:"what is a function in coding",a:"💻 A function is a reusable block of code that does a specific job — you can call it as many times as you need!"},
-      {topic:"coding",q:"what is an if statement",a:"💻 An if statement tells the computer to do something only when a condition is true — like 'if it rains, take umbrella'!"},
-      {topic:"coding",q:"what does open source mean",a:"💻 Open source means the code of a program is freely shared so anyone can read, use, or improve it!"},
-      {topic:"coding",q:"what is artificial intelligence",a:"💻 Artificial Intelligence is when computers are programmed to think, learn, and solve problems like humans!"},
-      {topic:"coding",q:"what is a server",a:"💻 A server is a powerful computer that stores websites and sends them to your screen when you type a web address!"},
-      {topic:"coding",q:"what is a game engine",a:"💻 A game engine helps coders build video games easily — examples are Unity and Unreal Engine!"},
-      // 🔬 SCIENCE
-      {topic:"science",q:"what is gravity",a:"🔬 Gravity is the invisible force that pulls everything toward the Earth — it is why we don't float away!"},
-      {topic:"science",q:"what is an atom",a:"🔬 An atom is the tiniest building block of everything — all matter in the universe is made of atoms!"},
-      {topic:"science",q:"why is the sky blue",a:"🔬 The sky looks blue because sunlight is scattered by the atmosphere and blue light scatters the most!"},
-      {topic:"science",q:"what is photosynthesis",a:"🔬 Photosynthesis is how plants make their own food using sunlight, water, and carbon dioxide from the air!"},
-      {topic:"science",q:"what is a black hole",a:"🔬 A black hole is a region in space with such strong gravity that nothing, not even light, can escape from it!"},
-      {topic:"science",q:"how many planets are in the solar system",a:"🔬 There are 8 planets — Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune!"},
-      {topic:"science",q:"what is electricity",a:"🔬 Electricity is the flow of tiny charged particles called electrons through a conductor like a wire!"},
-      {topic:"science",q:"what is dna",a:"🔬 DNA is a molecule inside every cell that carries the instructions for how a living thing grows and works!"},
-      {topic:"science",q:"why do we have seasons",a:"🔬 We have seasons because the Earth is tilted on its axis as it orbits the Sun, changing how much sunlight each part receives!"},
-      {topic:"science",q:"what is the speed of light",a:"🔬 Light travels at about 300,000 km per second — it is the fastest thing in the universe!"},
-      {topic:"science",q:"what is evaporation",a:"🔬 Evaporation is when a liquid like water turns into gas when heated — like puddles drying in the sun!"},
-      {topic:"science",q:"what causes thunder and lightning",a:"🔬 Lightning is a giant spark of electricity in the sky, and thunder is the sound it makes as the air rapidly expands!"},
-      {topic:"science",q:"what is the water cycle",a:"🔬 The water cycle is the continuous movement of water through evaporation, cloud formation, and rainfall!"},
-      {topic:"science",q:"what is a fossil",a:"🔬 A fossil is the preserved remains of ancient animals and plants found in rocks — dinosaur bones are fossils!"},
-      {topic:"science",q:"what is sound",a:"🔬 Sound is vibrations that travel through the air as waves and reach your ears so you can hear them!"},
-      {topic:"science",q:"why does the moon shine",a:"🔬 The moon has no light of its own — it shines because it reflects sunlight from the Sun!"},
-      {topic:"science",q:"what is the food chain",a:"🔬 A food chain shows who eats whom in nature — it starts with plants and ends with top predators!"},
-      {topic:"science",q:"what is a chemical reaction",a:"🔬 A chemical reaction is when two or more substances combine to form completely new substances!"},
-      {topic:"science",q:"how do airplanes fly",a:"🔬 Airplane wings create lift — air moves faster over the top of the wing, pushing the plane up!"},
-      {topic:"science",q:"what is the human body made of",a:"🔬 The human body is made of about 37 trillion cells, built from elements like oxygen, carbon, and hydrogen!"},
-      // 🔢 MATH
-      {topic:"math",q:"what is pi",a:"🔢 Pi (π) is approximately 3.14159 — it is the ratio of a circle's circumference to its diameter!"},
-      {topic:"math",q:"what is a prime number",a:"🔢 A prime number can only be divided by 1 and itself — like 2, 3, 5, 7, and 11!"},
-      {topic:"math",q:"what is the pythagoras theorem",a:"🔢 Pythagoras' theorem says in a right triangle, a² + b² = c² where c is the longest side called the hypotenuse!"},
-      {topic:"math",q:"what is zero",a:"🔢 Zero is the number that represents nothing — it was invented in India and changed mathematics forever!"},
-      {topic:"math",q:"what is a fraction",a:"🔢 A fraction represents a part of a whole — like 1/2 means one part out of two equal parts!"},
-      {topic:"math",q:"what is multiplication",a:"🔢 Multiplication is adding a number to itself multiple times — 3 × 4 means 3 added 4 times which equals 12!"},
-      {topic:"math",q:"what is a percentage",a:"🔢 A percentage is a number as a part of 100 — for example, 50% means 50 out of 100!"},
-      {topic:"math",q:"what is an even number",a:"🔢 An even number can be divided exactly by 2 with no remainder — like 2, 4, 6, 8, 10!"},
-      {topic:"math",q:"what is an odd number",a:"🔢 An odd number cannot be divided exactly by 2 — like 1, 3, 5, 7, 9, 11!"},
-      {topic:"math",q:"what is the area of a rectangle",a:"🔢 The area of a rectangle is Length × Width — multiply the two sides together!"},
-      {topic:"math",q:"what is a square number",a:"🔢 A square number is a number multiplied by itself — like 4 × 4 = 16, so 16 is a square number!"},
-      {topic:"math",q:"what is algebra",a:"🔢 Algebra uses letters like x and y to represent unknown numbers and solve equations!"},
-      {topic:"math",q:"what is infinity",a:"🔢 Infinity is the concept of something that never ends — it is not a real number but an idea of endlessness!"},
-      {topic:"math",q:"what is a negative number",a:"🔢 A negative number is less than zero — like -1, -5, or -100, shown with a minus sign in front!"},
-      {topic:"math",q:"what is the perimeter",a:"🔢 The perimeter is the total distance around the outside of a shape — add up all the sides to find it!"},
-      {topic:"math",q:"what is a decimal",a:"🔢 A decimal is a number with a dot called a decimal point — like 3.5 or 0.75 — used to show parts of a whole!"},
-      {topic:"math",q:"what is division",a:"🔢 Division is splitting a number into equal parts — 12 ÷ 3 means splitting 12 into 3 equal groups of 4!"},
-      {topic:"math",q:"what are roman numerals",a:"🔢 Roman numerals use letters — I=1, V=5, X=10, L=50, C=100, D=500, M=1000!"},
-      {topic:"math",q:"what is a triangle",a:"🔢 A triangle is a shape with 3 sides and 3 angles — the three angles always add up to 180 degrees!"},
-      {topic:"math",q:"what is the fibonacci sequence",a:"🔢 The Fibonacci sequence is 1, 1, 2, 3, 5, 8, 13... where each number is the sum of the two before it!"}
-    ];
-
-    let currentTopic = 'all';
-    let apiKey = '';
     let isLogged = false;
+    let userName = '';
+    let currentTopic = 'all';
+
+    const GEMINI_API_KEY = 'AIzaSyBjgPcROQTvPK5FsgIdB9R_6Pzj6zSVJ-Q';
 
     function showPage(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -312,31 +200,35 @@
       document.getElementById('dark-toggle-btn').textContent = isDark ? '☀️ Light' : '🌙 Dark';
     }
 
-    function openLogin() { document.getElementById('login-modal').classList.add('show'); }
-    function closeLogin() { document.getElementById('login-modal').classList.remove('show'); }
+    function openLogin() { 
+      document.getElementById('login-modal').classList.add('show'); 
+      document.getElementById('name-input').focus();
+    }
+    
+    function closeLogin() { 
+      document.getElementById('login-modal').classList.remove('show'); 
+    }
     
     function doLogin() {
-      const email = document.getElementById('email-input').value.trim();
-      const password = document.getElementById('password-input').value.trim();
-      const key = document.getElementById('api-key-input').value.trim();
+      const name = document.getElementById('name-input').value.trim();
       const err = document.getElementById('login-error');
       
-      if (!email || !password || !key) { 
+      if (!name) { 
         err.style.display = 'block'; 
         return; 
       }
       
       err.style.display = 'none';
-      apiKey = key;
+      userName = name;
       isLogged = true;
       closeLogin();
       document.getElementById('doubt-fab').style.display = 'block';
       const btn = document.getElementById('login-nav-btn');
-      btn.textContent = '✅ ' + email.split('@')[0];
+      btn.textContent = '✅ ' + name;
       btn.style.background = '#E1F5EE';
       btn.style.color = '#085041';
       btn.onclick = null;
-      addMsg('✅ Connected to ChatGPT! Ask me anything!', 'ai');
+      addMsg('✅ Welcome ' + name + '! I\'m ready to answer your questions with Google Gemini AI! 🎓', 'ai');
     }
 
     function toggleDoubt() {
@@ -354,15 +246,21 @@
       currentTopic = topic;
       document.querySelectorAll('.doubt-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const count = topic === 'all' ? qaDB.length : qaDB.filter(q => q.topic === topic).length;
-      addMsg('📚 Showing ' + count + ' questions for ' + (topic === 'all' ? 'all topics' : topic) + '. Ask any question!', 'ai');
+      const topicNames = {
+        'all': 'all topics',
+        'chess': 'Chess',
+        'cricket': 'Cricket',
+        'coding': 'Coding',
+        'science': 'Science',
+        'math': 'Math'
+      };
+      addMsg('📚 Topic changed to: ' + topicNames[topic] + '. Ask me anything!', 'ai');
     }
 
     function addMsg(text, type) {
       const box = document.getElementById('doubt-messages');
       const div = document.createElement('div');
       div.className = 'msg ' + type;
-      div.style.whiteSpace = 'pre-line';
       div.textContent = text;
       box.appendChild(div);
       box.scrollTop = box.scrollHeight;
@@ -381,41 +279,57 @@
       input.disabled = true;
       sendBtn.disabled = true;
       
-      const typingMsg = addMsg('Thinking... 🤔', 'typing');
+      const typingMsg = addMsg('🤔 Thinking...', 'typing');
       
       try {
-        // Call ChatGPT API
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + apiKey
-          },
-          body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            messages: [{
-              role: 'user',
-              content: 'You are a friendly tutor for a 8-10 year old child named Shlok. He loves Chess, Cricket, Coding, Science, and Math. Answer this question in simple, fun language with emojis. Keep it short (2-3 sentences max): ' + val
-            }],
-            max_tokens: 150,
-            temperature: 0.7
-          })
-        });
+        const systemPrompt = `You are a friendly, encouraging AI tutor for an 8-10 year old child named ${userName} who loves Chess, Cricket, Coding, Science, and Math. 
         
+Current topic focus: ${currentTopic === 'all' ? 'any topic' : currentTopic}
+
+Guidelines:
+- Answer in very simple, fun, easy-to-understand language
+- Use emojis and short sentences
+- Keep answers short (2-3 sentences max)
+- Always be positive and encouraging
+- For ${currentTopic === 'all' ? 'any topic' : 'topics about ' + currentTopic}
+- Use examples kids can relate to`;
+
+        const response = await fetch(
+          'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + GEMINI_API_KEY,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{
+                  text: systemPrompt + '\n\nStudent Question: ' + val
+                }]
+              }],
+              generationConfig: {
+                maxOutputTokens: 150,
+                temperature: 0.9,
+              }
+            })
+          }
+        );
+
         typingMsg.remove();
-        
+
         if (!response.ok) {
           const error = await response.json();
           throw new Error(error.error?.message || 'API Error');
         }
-        
+
         const data = await response.json();
-        const answer = data.choices[0].message.content;
+        const answer = data.candidates[0].content.parts[0].text;
         addMsg(answer, 'ai');
-        
+
       } catch (error) {
         typingMsg.remove();
-        addMsg('❌ Error: ' + error.message + '\n\nMake sure your API key is valid!', 'ai');
+        addMsg('❌ Oops! Something went wrong. Try again! 😊', 'ai');
+        console.error('Error:', error);
       } finally {
         input.disabled = false;
         sendBtn.disabled = false;
@@ -426,16 +340,16 @@
     document.addEventListener('DOMContentLoaded', function() {
       const input = document.getElementById('doubt-input');
       const sendBtn = document.getElementById('doubt-send-btn');
-      
+
       function handleSend() {
         if (!document.getElementById('doubt-input').disabled) {
           sendDoubt();
         }
       }
-      
+
       sendBtn.addEventListener('click', handleSend);
-      input.addEventListener('keydown', function(e) { 
-        if (e.key === 'Enter' && !input.disabled) handleSend(); 
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !input.disabled) handleSend();
       });
     });
   </script>
